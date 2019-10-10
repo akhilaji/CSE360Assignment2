@@ -4,7 +4,7 @@
  * Description: This class implements functions to add and subtract the parameter value from the total.
  * 
  * @author Akhil Aji
- * @version 1.0
+ * @version 2.0
  * 
  */
 
@@ -19,14 +19,20 @@ package cse360assign2;
  */
 public class AddingMachine {
 
+	/**
+	 * Stores the running total value to be returned to user.
+	 */
 	private int total;
-	
+	/**
+	 * Stores the history of operations as a string 
+	 */
+	private String history = "0"; 
 	/**
 	 * Default constructor for the AddingMachine class.
 	 * initializes the total value to 0
 	 */
 	public AddingMachine () {
-		total = 0;  // not needed - included for clarity
+		total = 0;  
 	}
 	
 	/**
@@ -42,16 +48,17 @@ public class AddingMachine {
 	 * @param This parameter has the value to be added
 	 */
 	public void add (int value) {
-		
+		total += value;
+		history += "+" + value;
 	}
 	
 	/**
 	 * This method subtracts a Int value from the total
 	 * @param This parameter has the value to be 
-	 * 
 	 */
 	public void subtract (int value) {
-		
+		total -= value;
+		history += "-" + value;
 	}
 	
 	/**
@@ -59,13 +66,15 @@ public class AddingMachine {
 	 * @return computed value as a string
 	 */
 	public String toString () {
-		return "";
+		return history;
 	}
 
 	/**
-	 * This method clears the string
+	 * This method resets the string and int values 
 	 */
 	public void clear() {
-	
+		history = "0";
+		total = 0;
 	}
+	
 }
